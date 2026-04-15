@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="120" fill="#0A0A0A"/>
+  
+  <!-- Route Line -->
+  <path d="M140 360V160C140 120 180 100 220 120L320 180C360 200 360 240 320 260L220 320C180 340 180 380 220 400" 
+        stroke="#22D3EE" 
+        stroke-width="28" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Destination Dot -->
+  <circle cx="320" cy="180" r="18" fill="#22D3EE"/>
+</svg>
