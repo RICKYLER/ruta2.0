@@ -30,16 +30,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Nav links */}
           <nav className="flex items-center gap-2">
-            <Link
-              href="/#simulation"
-              id="nav-simulation-link"
-              scroll={true}
-              className="px-5 py-2 rounded-xl text-sm font-semibold bg-secondary text-foreground hover:bg-secondary/80 transition-all shadow-sm"
-            >
-              Simulation
-            </Link>
             <Link
               href="/demo"
               id="nav-demo-link"
