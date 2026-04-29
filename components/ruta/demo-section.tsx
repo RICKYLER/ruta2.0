@@ -95,7 +95,7 @@ interface Message {
 
 // ─── Component ─────────────────────────────────────────────────────────────────
 
-export function DemoSection() {
+export function DemoSection({ standalone = false }: { standalone?: boolean }) {
   const [input, setInput]             = useState("");
   const [phase, setPhase]             = useState<Phase>("idle");
   const [analyzeStep, setAnalyzeStep] = useState(0);
@@ -176,42 +176,50 @@ export function DemoSection() {
   const isProcessing = phase === "analyzing" || phase === "streaming";
 
   return (
-    <section id="demo" className="py-16 sm:py-20 px-4 sm:px-6 bg-secondary/25">
-      <div className="max-w-2xl mx-auto">
+    <section id="demo" className={standalone ? "h-full w-full" : "py-16 sm:py-20 px-4 sm:px-6 bg-secondary/25"}>
+      <div className={standalone ? "h-full flex flex-col" : "max-w-2xl mx-auto"}>
 
-        {/* Section label */}
-        <div className="text-center mb-8 sm:mb-10">
-          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-2 sm:mb-3">
-            See it in action
-          </p>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-balance text-foreground mb-3 sm:mb-4">
-            Tanawa kung unsaon
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-lg text-balance max-w-lg mx-auto leading-relaxed">
-            Ask in Bisaya or English. RUTA mo-suggest dayon — jeepney codes,
-            unsaon sakay, ug fare estimate.
-          </p>
-        </div>
+        {/* Section label - hidden in standalone mode */}
+        {!standalone && (
+          <div className="text-center mb-8 sm:mb-10">
+            <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-2 sm:mb-3">
+              See it in action
+            </p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-balance text-foreground mb-3 sm:mb-4">
+              Tanawa kung unsaon
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-lg text-balance max-w-lg mx-auto leading-relaxed">
+              Ask in Bisaya or English. RUTA mo-suggest dayon — jeepney codes,
+              unsaon sakay, ug fare estimate.
+            </p>
+          </div>
+        )}
 
         {/* ── Dark Chat Panel ─────────────────────────────────────────────── */}
         <div
-          className="rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl"
-          style={{ height: 580, background: "#0d1424", border: "1px solid rgba(255,255,255,0.06)" }}
+          className={standalone ? "rounded-none sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl w-full h-full" : "rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl"}
+          style={{ height: standalone ? "100%" : 580, background: "#0d1424", border: standalone ? "none" : "1px solid rgba(255,255,255,0.06)" }}
         >
           {/* Header */}
           <div
-            className="flex items-center justify-center gap-3 px-5 py-4 flex-shrink-0"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
+            className="flex items-center justify-center gap-3.5 px-5 py-5 flex-shrink-0"
+            style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)" }}
           >
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "rgba(20,184,166,0.15)", border: "1px solid rgba(20,184,166,0.25)" }}
-            >
-              <Bot className="w-5 h-5" style={{ color: "#14b8a6" }} />
+            <div className="relative">
+              <div
+                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(20,184,166,0.3)]"
+                style={{ background: "rgba(20,184,166,0.1)", border: "1px solid rgba(20,184,166,0.2)" }}
+              >
+                <Bot className="w-5.5 h-5.5" style={{ color: "#14b8a6" }} />
+              </div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#0d1424]" />
             </div>
-            <div className="text-center">
-              <p className="text-sm font-bold text-white tracking-widest uppercase">RUTA BOT</p>
-              <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>Dedicated commuter chat</p>
+            
+            <div className="text-left">
+              <div className="flex items-center gap-2">
+                <p className="text-[13px] font-black text-white tracking-[0.1em] uppercase">RUTA BOT</p>
+              </div>
+              <p className="text-[10px] font-medium mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Dedicated commuter assistant</p>
             </div>
           </div>
 

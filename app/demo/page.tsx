@@ -1,6 +1,5 @@
 import { DemoSection } from "@/components/ruta/demo-section";
 import { Navbar } from "@/components/ruta/navbar";
-import { Footer } from "@/components/ruta/footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,45 +10,16 @@ export const metadata: Metadata = {
 
 export default function DemoPage() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="h-screen w-full bg-[#0d1424] flex flex-col overflow-hidden overscroll-none">
       <Navbar />
-
-      {/* Hero banner for the demo page */}
-      <section className="pt-32 pb-4 px-4 text-center bg-background">
-        <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-widest mb-3">
-          Interactive Demo
-        </p>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
-          Sulayan ang RUTA AI
-        </h1>
-        <p className="text-muted-foreground text-sm sm:text-lg max-w-xl mx-auto leading-relaxed text-balance">
-          I-type ang imong destination — bisan Bisaya or English — ug tan-awon
-          kung unsaon ka namo tabangan makasakay.
-        </p>
-
-        {/* Suggested prompts */}
-        <div className="flex flex-wrap justify-center gap-2 mt-6">
-          {[
-            "Unsay Sakyan IT Park to Colon?",
-            "Paano makaadto Ayala from SM?",
-            "Route from Carbon to Talamban",
-          ].map((prompt) => (
-            <span
-              key={prompt}
-              className="px-3 py-1.5 rounded-full bg-secondary border border-border text-xs text-muted-foreground font-medium"
-            >
-              {prompt}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* The actual chat demo */}
-      <DemoSection />
-
-
-
-      <Footer />
+      
+      {/* 
+        This container fills the remaining height. 
+        We use overflow-hidden here too to ensure only the chat component handles scrolling.
+      */}
+      <div className="flex-1 w-full max-w-2xl mx-auto flex flex-col pt-16 px-0 sm:px-4 sm:pb-4 overflow-hidden">
+        <DemoSection standalone={true} />
+      </div>
     </main>
   );
 }
