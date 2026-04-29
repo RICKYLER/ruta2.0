@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { WaitlistModal } from "./waitlist-modal";
@@ -29,6 +30,16 @@ export function Navbar() {
             </span>
           </div>
 
+          {/* Nav links */}
+          <nav className="flex items-center gap-2">
+            <Link
+              href="/demo"
+              id="nav-demo-link"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            >
+              Try Demo
+            </Link>
+          </nav>
           
         </div>
       </header>
