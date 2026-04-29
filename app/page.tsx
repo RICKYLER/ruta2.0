@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/ruta/hero-section";
 import { AboutSection } from "@/components/ruta/about-section";
 import { DemoSection } from "@/components/ruta/demo-section";
+import { SimulationSection } from "@/components/ruta/simulation-section";
 import { ResultsSection } from "@/components/ruta/results-section";
 import { Footer } from "@/components/ruta/footer";
 import { Navbar } from "@/components/ruta/navbar";
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <DemoSection />
+      <SimulationSection />
       <ResultsSection />
       <Footer />
     </main>

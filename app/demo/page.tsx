@@ -1,4 +1,5 @@
 import { DemoSection } from "@/components/ruta/demo-section";
+import { SimulationSection } from "@/components/ruta/simulation-section";
 import { Navbar } from "@/components/ruta/navbar";
 import { Footer } from "@/components/ruta/footer";
 import type { Metadata } from "next";
@@ -46,6 +47,9 @@ export default function DemoPage() {
 
       {/* The actual chat demo */}
       <DemoSection />
+
+      {/* Live Simulation */}
+      <SimulationSection />
 
       <Footer />
     </main>
