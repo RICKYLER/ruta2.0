@@ -17,7 +17,7 @@ export function Navbar() {
         <div className="flex w-full items-center justify-between px-6 py-4 lg:px-10">
           
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/ruta-icon.svg"
               alt="RUTA"
@@ -28,9 +28,8 @@ export function Navbar() {
             <span className="text-2xl font-semibold tracking-tight">
               RUTA
             </span>
-          </div>
+          </Link>
 
-          {/* Nav links */}
           <nav className="flex items-center gap-2">
             <Link
               href="/demo"

@@ -47,6 +47,8 @@ export default function DemoPage() {
       {/* The actual chat demo */}
       <DemoSection />
 
+
+
       <Footer />
     </main>
   );
